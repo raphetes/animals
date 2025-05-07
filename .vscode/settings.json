@@ -1,0 +1,10 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.tabSize": 2,
+  "editor.mouseWheelZoom": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}
