@@ -1,5 +1,5 @@
-import initNavAnimalsContent from "./modules/animalsContent.js";
-import initAccordionNav from "./modules/accordionFaq.js";
+import NavAnimalsContent from "./modules/animalsContent.js";
+import AccordionNav from "./modules/accordionFaq.js";
 import SmoothScroll from "./modules/smoothNavScroll.js";
 import initScrollAnimation from "./modules/scrollAnimation.js";
 import initModal from "./modules/modal.js";
@@ -12,8 +12,12 @@ import initBitcoinFetch from "./modules/bitcoin-fetch.js";
 
 const smoothScroll = new SmoothScroll('[data-menu="nav"], a[href^="#"]');
 smoothScroll.init();
-initNavAnimalsContent();
-initAccordionNav();
+const accordionNav = new AccordionNav('[data-anime="accordion"] dt');
+accordionNav.init();
+
+const tabNavAnimals = new NavAnimalsContent('[data-nav-tab="images"] li','[data-nav-tab="content"] section');
+tabNavAnimals.init();
+
 initScrollAnimation();
 initModal();
 initTooltip();
