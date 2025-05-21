@@ -3,7 +3,7 @@ import AccordionNav from "./modules/accordionFaq.js";
 import SmoothScroll from "./modules/smoothNavScroll.js";
 import initScrollAnimation from "./modules/scrollAnimation.js";
 import Modal from "./modules/modal.js";
-import initTooltip from "./modules/tooltip.js";
+import Tooltip from "./modules/tooltip.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initDate from "./modules/date.js";
@@ -29,7 +29,9 @@ const modal = new Modal(
 );
 modal.init();
 
-initTooltip();
+const toolTip = new Tooltip("[data-tooltip]");
+toolTip.init();
+
 initDropdownMenu();
 initMenuMobile();
 initDate();
