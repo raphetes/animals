@@ -1,30 +1,49 @@
-export default function initNumeros() {
-  const allNumbers = document.querySelectorAll("[data-numero]");
+export default class Numbers {
+  constructor(numbers, observerClass, target) {
+    this.numbers = document.querySelectorAll(numbers);
+    this.observerClass = observerClass;
+    this.observerTarget = document.querySelector(target);
 
-  function numberAnimation() {
-    allNumbers.forEach((number) => {
-      const totalNumber = +number.textContent;
-      const incremento = Math.round(totalNumber / 100);
-      let i = 0;
+    this.handleObserver = this.handleObserver.bind(this);
+  }
 
-      const timer = setInterval(() => {
-        i += incremento;
-        number.textContent = i;
-        if (i > totalNumber) {
-          number.textContent = totalNumber;
-          clearInterval(timer);
-        }
-      }, 20 * Math.random());
+  static animNumber(number) {
+    const totalNumber = +number.textContent;
+    const incremento = Math.round(totalNumber / 100);
+    let i = 0;
+
+    const timer = setInterval(() => {
+      i += incremento;
+      number.textContent = i;
+      if (i > totalNumber) {
+        number.textContent = totalNumber;
+        clearInterval(timer);
+      }
+    }, 20 * Math.random());
+  }
+
+  numberAnimation() {
+    this.numbers.forEach((number) => {
+      this.constructor.animNumber(number);
     });
   }
 
-  const numberSection = document.querySelector(".numeros");
-  function handleObeserver(mutation) {
-    if (mutation[0].target.classList.contains("ativo")) {
-      numberAnimation();
-      observer.disconnect();
+  handleObserver(mutation) {
+    if (mutation[0].target.classList.contains(this.observerClass)) {
+      this.observer.disconnect();
+      this.numberAnimation();
     }
   }
-  const observer = new MutationObserver(handleObeserver);
-  observer.observe(numberSection, { attributes: true });
+
+  addMutationObserver() {
+    this.observer = new MutationObserver(this.handleObserver);
+    this.observer.observe(this.observerTarget, { attributes: true });
+  }
+
+  init() {
+    if (this.numbers.length && this.observerTarget && this.observerClass) {
+      this.addMutationObserver();
+    }
+    return this;
+  }
 }

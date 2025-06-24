@@ -1,4 +1,4 @@
-import initNumbers from "./numeros.js";
+import Numbers from "./numeros.js";
 
 export default function initFetchNumbers() {
   async function fetchAnimal(url) {
@@ -10,7 +10,8 @@ export default function initFetchNumbers() {
         const divAnimal = buildHtml(data);
         numbersGrid.appendChild(divAnimal);
       });
-      initNumbers();
+      const numbers = new Numbers("[data-numero]", "ativo", ".numeros");
+      numbers.init();
     } catch (error) {}
   }
   function buildHtml(data) {
