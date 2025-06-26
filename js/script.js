@@ -1,7 +1,7 @@
 import NavAnimalsContent from "./modules/animalsContent.js";
 import AccordionNav from "./modules/accordionFaq.js";
 import SmoothScroll from "./modules/smoothNavScroll.js";
-import initScrollAnimation from "./modules/scrollAnimation.js";
+import ScrollAnim from "./modules/scrollAnimation.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
@@ -21,7 +21,9 @@ const tabNavAnimals = new NavAnimalsContent(
 );
 tabNavAnimals.init();
 
-initScrollAnimation();
+const scrollAnim = new ScrollAnim('[data-anime="scroll"]');
+scrollAnim.init();
+
 const modal = new Modal(
   '[data-modal="open"]',
   '[data-modal="close"]',
