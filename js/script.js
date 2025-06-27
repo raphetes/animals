@@ -5,8 +5,7 @@ import ScrollAnim from "./modules/scrollAnimation.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import DropdownMenu from "./modules/dropdown-menu.js";
-import initMenuMobile from "./modules/menu-mobile.js";
-import initDate from "./modules/date.js";
+import Date from "./modules/date.js";
 import fetchAnimals from "./modules/animals-fetch.js";
 import fetchBitcoin from "./modules/bitcoin-fetch.js";
 import MenuMobile from "./modules/menu-mobile.js";
@@ -41,7 +40,9 @@ dropdownMenu.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="nav"]');
 menuMobile.init();
 
-initDate();
+const date = new Date("[data-week]");
+date.init();
+
 fetchAnimals("../../animaisapi.json", ".numeros-grid");
 fetchBitcoin("https://blockchain.info/ticker", ".btc-price");
 //opa!
