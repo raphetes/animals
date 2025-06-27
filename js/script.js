@@ -4,7 +4,7 @@ import SmoothScroll from "./modules/smoothNavScroll.js";
 import ScrollAnim from "./modules/scrollAnimation.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
-import initDropdownMenu from "./modules/dropdown-menu.js";
+import DropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initDate from "./modules/date.js";
 import fetchAnimals from "./modules/animals-fetch.js";
@@ -34,7 +34,9 @@ modal.init();
 const toolTip = new Tooltip("[data-tooltip]");
 toolTip.init();
 
-initDropdownMenu();
+const dropdownMenu = new DropdownMenu("[data-dropdown]");
+dropdownMenu.init();
+
 initMenuMobile();
 initDate();
 fetchAnimals("../../animaisapi.json", ".numeros-grid");
