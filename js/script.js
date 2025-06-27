@@ -9,6 +9,7 @@ import initMenuMobile from "./modules/menu-mobile.js";
 import initDate from "./modules/date.js";
 import fetchAnimals from "./modules/animals-fetch.js";
 import fetchBitcoin from "./modules/bitcoin-fetch.js";
+import MenuMobile from "./modules/menu-mobile.js";
 
 const smoothScroll = new SmoothScroll('[data-menu="nav"], a[href^="#"]');
 smoothScroll.init();
@@ -37,7 +38,9 @@ toolTip.init();
 const dropdownMenu = new DropdownMenu("[data-dropdown]");
 dropdownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="nav"]');
+menuMobile.init();
+
 initDate();
 fetchAnimals("../../animaisapi.json", ".numeros-grid");
 fetchBitcoin("https://blockchain.info/ticker", ".btc-price");
