@@ -1,0 +1,62 @@
+[data-menu="button"] {
+  display: none;
+}
+@media(max-width: 700px) {
+  .js [data-menu="button"] {
+    display: flex;
+    background: #222;
+    border: none;
+    padding: .8rem 1.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1rem;
+    align-items: center;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 300;
+  }
+  .js [data-menu="button"]::before {
+    content: '';
+    display: inline-block;
+    height: 2px;
+    width: 1.2rem;
+    background: #fff;
+    box-shadow: 0 4px #fff, 0 -4px #fff;
+    margin-right: .8rem;
+    transition: transform .2s;
+  }
+  .js [data-menu="button"].ativo::before { 
+    transform: rotate(90deg);
+  }
+  .js [data-menu="nav"] {
+    display: none;
+    position: absolute;
+    background: #fb5;
+    width: 16rem;
+    z-index: 200;
+    top: 0;
+    padding: 6rem 0 2rem 0;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,.2);
+  }
+  .js [data-menu="nav"].ativo {
+    display: block;
+    animation: slide-down .2s backwards;
+  }
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .js .dropdown-menu{
+    position: static;
+    border: none;
+  }
+}
