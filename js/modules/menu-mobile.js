@@ -5,7 +5,8 @@ export default function initMenuMobile() {
   const menuList = document.querySelector('[data-menu="nav"]');
   const userEvents = ["click", "touchstart"];
 
-  function openMenu() {
+  function openMenu(event) {
+    event.preventDefault();
     menuList.classList.toggle("ativo");
     buttonMenuMobile.classList.toggle("ativo");
     initOutsideClick(menuList, ["click", "touchstart"], () => {
